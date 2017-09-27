@@ -1,0 +1,6 @@
+{
+  "name": "rootAir-ng2",
+  "description": "Starter rootAir-ng2",
+  "repository": "https://github.com/rootair/rootair-ng2",
+  "keywords": ["angular2", "express", "node"]
+}

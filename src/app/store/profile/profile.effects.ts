@@ -8,16 +8,16 @@ import { USER_GET, UserGet, UserGetFail, UserGetSuccess } from './profile.action
 @Injectable()
 export class ProfileEffects {
 
-  @Effect()
-  userGet$ = this.actions$
-    .ofType(USER_GET)
-    .switchMap((action: UserGet) => {
+  // @Effect()
+  // userGet$ = this.actions$
+  //   .ofType(USER_GET)
+  //   .switchMap((action: UserGet) => {
 
-      return this.http.get('/api/user', action.payload)
-        .map((response: Response) => response.json())
-        .catch((error) => Observable.of(new UserGetFail(error)))
-        .map((response) => new UserGetSuccess(response));
-    });
+  //   return this.http.get('/api/user', action.payload)
+  //     .map((response: Response) => response.json())
+  //     .catch((error) => Observable.of(new UserGetFail(error)))
+  //     .map((response) => new UserGetSuccess(response));
+  //   });
 
   constructor(private actions$: Actions, private http: Http) {}
 }

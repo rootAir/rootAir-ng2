@@ -1,0 +1,26 @@
+
+import { NgModule, ModuleWithProviders } from '@angular/core';
+
+import { NbSharedModule } from './../shared/shared.module';
+import { NbMenuComponent, NbMenuItemComponent } from './menu.component';
+import { NbMenuService, NbMenuInternalService } from './menu.service';
+
+const nbMenuComponents = [NbMenuComponent, NbMenuItemComponent];
+
+const NB_MENU_PROVIDERS = [NbMenuService, NbMenuInternalService];
+
+@NgModule({
+  imports: [NbSharedModule],
+  declarations: [...nbMenuComponents],
+  exports: [...nbMenuComponents],
+})
+export class NbMenuModule {
+  static forRoot(): ModuleWithProviders {
+    return <ModuleWithProviders>{
+      ngModule: NbMenuModule,
+      providers: [
+        ...NB_MENU_PROVIDERS,
+      ],
+    };
+  }
+}
